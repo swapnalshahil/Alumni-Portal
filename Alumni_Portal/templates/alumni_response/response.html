@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>response</title>
+  </head>
+  <body>
+    <h1>{{heading}}</h1>
+
+    {% if messages %}
+      {% for message in messages %}
+        {{ message|safe }}
+      {% endfor %}
+    {% endif %}
+
+    <div class="container">
+      <form method="POST">
+          {% csrf_token %}
+          {{form.as_p}}
+          <input type="submit" name="" value="Submit">
+      </form>
+    </div>
+    {% if field.help_text %}
+      {{ field.help_text }}
+    {% endif %}
+  </body>
+</html>
