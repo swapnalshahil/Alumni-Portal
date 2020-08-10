@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+    <h1>{{Alumni.alumni}}</h1>
+    <h3>{{Alumni.department}},{{Alumni.passout_year}}</h3>
+
+    <p>{{Alumni.current_job}}</p>
+    <hr>
+    <p>After 4th Year I opted for <strong>{{Alumni.post_college}}</strong></p>
+    {% if Alumni.post_college == 'Higher studies' %}
+      <p>programme: {{Alumni.higher.programme}}</p>
+      <p>university: {{Alumni.higher.university}}</p>
+      <p>Important Books: {{Alumni.higher.books}}</p>
+      <p>Some advice to follow my career path: {{Alumni.higher.additional_tips}}</p>
+
+    {% elif Alumni.post_college == 'Job' %}
+      <p>profile: {{Alumni.job.profile}}</p>
+      <p>company: {{Alumni.job.company}}</p>
+      <p>Important Books: {{Alumni.job.books}}</p>
+      <p>Some advice to follow my career path: {{Alumni.job.additional_tips}}</p>
+
+    {% elif Alumni.post_college == 'Entrepreneurship' %}
+      <p>start_up name: {{Alumni.start_up.startup_name}}</p>
+      <p>{{Alumni.start_up.startup_description}}</p>
+      <p>Important Books: {{Alumni.start_up.books}}</p>
+      <p>Some advice to follow my career path: {{Alumni.start_up.additional_tips}}</p>
+
+    {% endif %}
+
+<hr>
+  <p>I prefer to be contacted on {{Alumni.contact.contact}}</p>
+  <p>Some advice on college life: {{Alumni.contact.advice}}</p>
+  </body>
+</html>

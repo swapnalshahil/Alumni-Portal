@@ -15,16 +15,16 @@ CONTACT=[
 ]
 
 BRANCH=[
-    ('Computer Science and Engineering','Computer Science and Engineering'),
-    ('Mathematics and Computing','Mathematics and Computing'),
-    ('Electronics and Electrical Engineering','Electronics and Electrical Engineering'),
-    ('Mechanical Engineering','Mechanical Engineering'),
-    ('Civil Engineering','Civil Engineering'),
-    ('Chemical Science and Technology','Chemical Science and Technology'),
-    ('Chemical Engineering','Chemical Engineering'),
-    ('Biotech','Biotech'),
-    ('Engineering Physics','Engineering Physics'),
-    ('Electronics and Communication Engineering','Electronics and Communication Engineering')
+    ('CSE','Computer Science and Engineering'),
+    ('MNC','Mathematics and Computing'),
+    ('EEE','Electronics and Electrical Engineering'),
+    ('ME','Mechanical Engineering'),
+    ('Civil','Civil Engineering'),
+    ('CST','Chemical Science and Technology'),
+    ('CE','Chemical Engineering'),
+    ('BT','Biotech'),
+    ('EP','Engineering Physics'),
+    ('ECE','Electronics and Communication Engineering')
 ]
 
 

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1>List of Alumni:</h1>
+    <table>
+      <thead>
+        <th>
+          <h3>Name</h3>
+        </th>
+        <th>
+          <h3>Branch</h3>
+        </th>
+        <th>
+          <h3>Current Position</h3>
+        </th>
+        <th>
+          <h3>After 4th Year</h3>
+        </th>
+        <th>
+          <h3>Job Profile</h3>
+        </th>
+        <th>
+          <h3>Company</h3>
+        </th>
+        <th>
+          <h3>Higher Study Programme</h3>
+        </th>
+        <th>
+          <h3>University</h3>
+        </th>
+        <th>
+          <h3>Start_Up Name</h3>
+        </th>
+      </thead>
+      {% for response in response %}
+      <a href="{% url 'alumni_response:alumni_detail' pk=response.pk %}">
+        <tr>
+          <td><a href="{% url 'alumni_response:alumni_detail' pk=response.pk %}">{{response.alumni}}</a></td>
+          <td>{{response.department}}</td>
+          <td>{{response.current_job}}</td>
+          <td>{{response.post_college}}</td>
+          {% if response.post_college == 'Higher studies' %}
+          <td>NA</td>
+          <td>NA</td>
+          <td>{{response.higher.programme}}</td>
+          <td>{{response.higher.university}}</td>
+          <td>NA</td>
+          {% elif response.post_college == 'Job' %}
+          <td>response.job.profile</td>
+          <td>response.job.company</td>
+          <td>NA</td>
+          <td>NA</td>
+          <td>NA</td>
+          {% elif response.post_college == 'Entrepreneurship' %}
+          <td>NA</td>
+          <td>NA</td>
+          <td>NA</td>
+          <td>NA</td>
+          <td>response.start_up.startup_name</td>
+          {% endif %}
+        </tr>
+      </a>
+
+      {% endfor %}
+    </table>
+  </body>
+</html>

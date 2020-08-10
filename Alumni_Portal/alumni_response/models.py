@@ -15,36 +15,38 @@ CONTACT=[
 ]
 
 BRANCH=[
-    ('Computer Science and Engineering','Computer Science and Engineering'),
-    ('Mathematics and Computing','Mathematics and Computing'),
-    ('Electronics and Electrical Engineering','Electronics and Electrical Engineering'),
-    ('Mechanical Engineering','Mechanical Engineering'),
-    ('Civil Engineering','Civil Engineering'),
-    ('Chemical Science and Technology','Chemical Science and Technology'),
-    ('Chemical Engineering','Chemical Engineering'),
-    ('Biotech','Biotech'),
-    ('Engineering Physics','Engineering Physics'),
-    ('Electronics and Communication Engineering','Electronics and Communication Engineering')
+('CSE','Computer Science and Engineering'),
+('MNC','Mathematics and Computing'),
+('EEE','Electronics and Electrical Engineering'),
+('ME','Mechanical Engineering'),
+('Civil','Civil Engineering'),
+('CST','Chemical Science and Technology'),
+('CE','Chemical Engineering'),
+('BT','Biotech'),
+('EP','Engineering Physics'),
+('ECE','Electronics and Communication Engineering')
 ]
 
 
 class Response(models.Model):
      # User is model of registration
-    alumni=models.ForeignKey(User, on_delete=models.CASCADE, related_name='responses',null=True)
+    alumni=models.ForeignKey(User, on_delete=models.CASCADE,null=True)
     passout_year=models.IntegerField(null=True)
     department=models.CharField(max_length=50, choices=BRANCH,null=True)
     current_job=models.CharField(max_length=1000, null=True)
     post_college=models.CharField(max_length=20, choices=STATUS,null=True)
 
 class Higher(models.Model):
-    alumni=models.ForeignKey(User, on_delete=models.CASCADE, related_name='highers',null=True)
+    alumni=models.ForeignKey(User, on_delete=models.CASCADE,null=True)
+    response=models.OneToOneField(Response, on_delete=models.CASCADE,null=True,unique=True)
     programme=models.CharField(max_length=100,null=True)
     university=models.CharField(max_length=100,null=True)
     books=models.CharField(max_length=500,null=True)
     additional_tips=models.CharField(max_length=5000,null=True)
 
 class Job(models.Model):
-    alumni=models.ForeignKey(User, on_delete=models.CASCADE, related_name='jobs',null=True)
+    alumni=models.ForeignKey(User, on_delete=models.CASCADE,null=True)
+    response=models.OneToOneField(Response, on_delete=models.CASCADE,null=True,unique=True)
     profile=models.CharField(max_length=100,null=True)
     company=models.CharField(max_length=100, null=True)
     interview_ques=models.CharField(max_length=1000,null=True)
@@ -52,14 +54,16 @@ class Job(models.Model):
     additional_tips=models.CharField(max_length=5000,null=True)
 
 class Start_Up(models.Model):
-    alumni=models.ForeignKey(User, on_delete=models.CASCADE, related_name='startups',null=True)
+    alumni=models.ForeignKey(User, on_delete=models.CASCADE,null=True)
+    response=models.OneToOneField(Response, on_delete=models.CASCADE,null=True,unique=True)
     startup_name=models.CharField(max_length=100,null=True)
     startup_description=models.CharField(max_length=5000,null=True)
     books=models.CharField(max_length=500,null=True)
     additional_tips=models.CharField(max_length=5000,null=True)
 
 class Contact(models.Model):
-    alumni=models.ForeignKey(User, on_delete=models.CASCADE, related_name='contacts',null=True)
+    alumni=models.ForeignKey(User, on_delete=models.CASCADE,null=True)
+    response=models.OneToOneField(Response, on_delete=models.CASCADE,null=True,unique=True)
     advice=models.CharField(max_length=5000,null=True)
     contact=models.CharField(max_length=100, choices=CONTACT,null=True)
 
