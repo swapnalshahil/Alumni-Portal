@@ -37,7 +37,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="C:\Users\hp\Desktop\New folder\Alumni-Portal\env"
+VIRTUAL_ENV="D:\coding\swc\Alumni-Portal\env
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"
